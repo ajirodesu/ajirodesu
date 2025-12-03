@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lance Cochangco | Vibe Coder</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                        'sans': ['"Inter"', 'sans-serif']
+                    },
+                    colors: {
+                        surface: { 
+                            50: '#fafafa',
+                            100: '#f4f4f5', 
+                            800: '#27272a', 
+                            900: '#18181b', 
+                            950: '#09090b',
+                            black: '#000000'
+                        }
+                    },
+                    screens: {
+                        'xs': '475px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Reset */
+        body { 
+            background-color: #000000; 
+            color: #e4e4e7; 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 2px; }
+        ::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+        /* Premium Card Architecture */
+        .premium-card {
+            background-color: #050505; 
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 0 0 1px rgba(0,0,0,1);
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .premium-card.interactive:hover {
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Ambient Glow */
+        .ambient-glow {
+            position: fixed;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Avatar Glow */
+        .avatar-glow {
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+        }
+
+        /* Loader */
+        #loader-screen {
+            position: fixed; inset: 0; z-index: 100; background: #000000;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.4s ease;
+        }
+    </style>
+</head>
+<body class="selection:bg-indigo-500/30 selection:text-indigo-200 flex flex-col min-h-screen">
+
+    <div class="ambient-glow"></div>
+
+    <div id="loader-screen">
+        <div class="flex flex-col items-center gap-6">
+            <div class="w-16 h-[1px] bg-zinc-800 overflow-hidden relative">
+                <div class="absolute inset-0 w-full h-full bg-white animate-[shimmer_1s_infinite]"></div>
+            </div>
+            <span class="text-[10px] font-mono text-zinc-600 tracking-[0.4em] uppercase">Initialising</span>
+        </div>
+    </div>
+
+    <nav class="sticky top-0 z-50 bg-[#000000]/80 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center rounded-[1px]">
+                    <div class="w-2 h-2 bg-black"></div>
+                </div>
+                <div class="h-4 w-[1px] bg-zinc-800 hidden xs:block"></div>
+                <span class="font-bold text-sm tracking-wide text-white hidden sm:block">LANCE <span class="text-zinc-600 font-medium">COCHANGCO</span></span>
+                <span class="font-bold text-sm tracking-wide text-white sm:hidden">LANCE <span class="text-zinc-600 font-medium">C.</span></span>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/AjiroDesu" target="_blank" class="text-[10px] font-mono text-zinc-500 hover:text-white transition-colors uppercase tracking-wider">GitHub</a>
+                <div class="flex items-center gap-2 px-3 py-1 rounded bg-surface-900 border border-white/10">
+                    <div class="w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_8px_#6366f1] animate-pulse"></div>
+                    <span class="text-[10px] font-mono text-indigo-400 font-bold">VIBE: ON</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-[1200px] mx-auto w-full px-4 sm:px-6 py-12 space-y-12">
+
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16">
+
+            <div class="flex flex-col items-center shrink-0">
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                    <img id="github-avatar" src="" alt="Lance Cochangco" class="relative w-32 h-32 md:w-44 md:h-44 rounded-full border border-white/10 bg-surface-950 object-cover avatar-glow">
+                </div>
+
+                <div class="mt-6 text-center">
+                    <h1 class="text-xl md:text-2xl font-bold text-white tracking-widest uppercase">Lance Cochangco</h1>
+                    <div class="flex items-center justify-center gap-2 mt-2">
+                        <i class="fab fa-github text-zinc-600 text-xs"></i>
+                        <span class="text-xs font-mono text-zinc-500 tracking-wider">@AjiroDesu</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center md:text-left flex-1 pt-2 md:pt-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-indigo-500/5 border border-indigo-500/20 rounded mb-6">
+                    <i class="fas fa-magic text-indigo-400 text-xs"></i>
+                    <span class="text-[10px] font-mono text-indigo-300 tracking-widest uppercase">AI Vibe Coder</span>
+                </div>
+
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 leading-tight">
+                    Orchestrating logic through <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">intuition & aesthetics.</span>
+                </h2>
+
+                <p class="text-zinc-500 max-w-xl text-sm leading-relaxed mx-auto md:mx-0">
+                    I am not a traditional programmer; I am an AI Vibe Coder. I curate ecosystems and guide intelligence to build high-performance tools like the <span class="text-white">Chaldea</span> & <span class="text-white">Paldea</span> networks.
+                </p>
+
+                <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
+                    <div class="px-3 py-1 border border-white/5 rounded bg-surface-900 text-[10px] font-mono text-zinc-400 flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div> JS (ESM)
+                    </div>
+                    <div class="px-3 py-1 border border-white/5 rounded bg-surface-900 text-[10px] font-mono text-zinc-400 flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-cyan-400 rounded-full"></div> TAILWIND
+                    </div>
+                    <div class="px-3 py-1 border border-white/5 rounded bg-surface-900 text-[10px] font-mono text-zinc-400 flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div> AI ASSISTED
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+        <div class="space-y-6">
+            <div class="flex justify-between items-end px-1 pb-2 border-b border-white/5">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-database text-zinc-700 text-xs"></i>
+                    <span class="text-xs font-bold text-white uppercase tracking-widest">Open Source Registry</span>
+                </div>
+                <span class="text-[9px] font-mono text-zinc-600">5 MODULES LOADED</span>
+            </div>
+
+            <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                </div>
+        </div>
+
+    </main>
+
+    <footer class="mt-auto border-t border-white/10 bg-[#000000] py-8">
+        <div class="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+            <div class="flex flex-col">
+                <span class="text-xs font-bold text-white tracking-widest">LANCE COCHANGCO</span>
+                <span class="text-[9px] text-zinc-600 font-mono mt-1">AI VIBE CODING // EST <span id="current-year">2024</span></span>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="https://github.com/AjiroDesu" target="_blank" class="group flex items-center gap-2 text-zinc-600 hover:text-white transition-colors" title="GitHub">
+                    <i class="fab fa-github text-lg"></i>
+                </a>
+
+                <div class="w-px h-4 bg-zinc-800"></div>
+
+                <a href="https://t.me/ajirodesu" target="_blank" class="group flex items-center gap-2 text-zinc-600 hover:text-[#229ED9] transition-colors" title="Telegram DM">
+                    <i class="fab fa-telegram text-lg"></i>
+                </a>
+
+                <a href="https://t.me/+b86ZjDUdXG42MGFl" target="_blank" class="group flex items-center gap-2 text-zinc-600 hover:text-[#229ED9] transition-colors" title="Telegram Group">
+                    <i class="fas fa-users text-sm"></i>
+                </a>
+
+                <div class="w-px h-4 bg-zinc-800"></div>
+
+                <a href="https://www.facebook.com/share/1bPhvPYTJA/" target="_blank" class="group flex items-center gap-2 text-zinc-600 hover:text-[#1877F2] transition-colors" title="Facebook">
+                    <i class="fab fa-facebook text-lg"></i>
+                </a>
+
+                <a href="https://m.me/j/Aba0mwuz9PTv7bP9/" target="_blank" class="group flex items-center gap-2 text-zinc-600 hover:text-[#0084FF] transition-colors" title="Messenger Group">
+                    <i class="fab fa-facebook-messenger text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set Current Year
+        document.getElementById('current-year').innerText = new Date().getFullYear();
+
+        // Project Data
+        const projects = [
+            {
+                name: "Wataru API",
+                desc: "High-performance endpoint aggregation system.",
+                type: "REST API",
+                icon: "server",
+                color: "blue",
+                url: "https://github.com/ajirodesu/wataru-api"
+            },
+            {
+                name: "Chaldea API",
+                desc: "Backend infrastructure powering the ecosystem.",
+                type: "REST API",
+                icon: "database",
+                color: "pink",
+                url: "https://github.com/ajirodesu/Chaldea-API"
+            },
+            {
+                name: "Chaldea",
+                desc: "The original modular bot ecosystem foundation.",
+                type: "TELEGRAM BOT",
+                icon: "cube",
+                color: "red",
+                url: "https://github.com/ajirodesu/Chaldea"
+            },
+            {
+                name: "Chaldea V2",
+                desc: "Refactored architecture with enhanced event handling.",
+                type: "TELEGRAM BOT",
+                icon: "layer-group",
+                color: "purple",
+                url: "https://github.com/ajirodesu/ChaldeaV2"
+            },
+            {
+                name: "Paldea",
+                desc: "Next-gen Interface & Dashboard for system management.",
+                type: "TELEGRAM BOT",
+                icon: "satellite-dish",
+                color: "indigo",
+                url: "https://github.com/ajirodesu/Paldea"
+            }
+        ];
+
+        // GitHub Data Fetcher
+        async function fetchGitHubProfile() {
+            try {
+                const res = await fetch('https://api.github.com/users/AjiroDesu');
+                const data = await res.json();
+
+                if(data.avatar_url) {
+                    document.getElementById('github-avatar').src = data.avatar_url;
+                } else {
+                    document.getElementById('github-avatar').src = 'https://ui-avatars.com/api/?name=Lance+Cochangco&background=6366f1&color=fff';
+                }
+            } catch(e) {
+                console.error("GitHub Fetch Error");
+                document.getElementById('github-avatar').src = 'https://ui-avatars.com/api/?name=Lance+Cochangco&background=6366f1&color=fff';
+            }
+        }
+
+        // Render Projects
+        function renderProjects() {
+            const grid = document.getElementById('project-grid');
+            const colorMap = {
+                blue: 'group-hover:text-blue-400',
+                red: 'group-hover:text-red-400',
+                purple: 'group-hover:text-purple-400',
+                pink: 'group-hover:text-pink-400',
+                indigo: 'group-hover:text-indigo-400',
+            };
+            const iconColorMap = {
+                blue: 'text-blue-500',
+                red: 'text-red-500',
+                purple: 'text-purple-500',
+                pink: 'text-pink-500',
+                indigo: 'text-indigo-500',
+            };
+
+            grid.innerHTML = projects.map(p => {
+                const hoverColor = colorMap[p.color];
+                const iconColor = iconColorMap[p.color];
+
+                return `
+                <a href="${p.url}" target="_blank" class="premium-card interactive rounded-lg p-5 flex flex-col gap-4 group cursor-pointer relative overflow-hidden">
+                    <div class="flex justify-between items-start">
+                        <div class="w-10 h-10 rounded bg-black border border-white/10 flex items-center justify-center group-hover:border-white/20 transition-colors">
+                            <i class="fas fa-${p.icon} ${iconColor}"></i>
+                        </div>
+                        <div class="flex items-center gap-2">
+                             <span class="text-[9px] font-bold font-mono text-zinc-600 bg-zinc-900 border border-zinc-800 px-1.5 py-0.5 rounded uppercase tracking-wider">${p.type}</span>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-sm font-bold text-white mb-1 ${hoverColor} transition-colors flex items-center gap-2">
+                            ${p.name} <i class="fas fa-arrow-right -rotate-45 text-[10px] opacity-0 group-hover:opacity-100 transition-all transform translate-y-1 group-hover:translate-y-0"></i>
+                        </h3>
+                        <p class="text-[11px] text-zinc-500 leading-relaxed font-mono line-clamp-2">${p.desc}</p>
+                    </div>
+
+                    <div class="mt-auto pt-4 border-t border-white/5 flex justify-between items-center">
+                        <div class="h-1.5 w-1.5 rounded-full ${iconColor.replace('text', 'bg')} shadow-[0_0_5px_currentColor]"></div>
+                        <span class="text-[9px] font-bold uppercase tracking-widest text-zinc-600 group-hover:text-white transition-colors">Source Code</span>
+                    </div>
+                </a>
+                `;
+            }).join('');
+        }
+
+        window.addEventListener('load', () => {
+            fetchGitHubProfile();
+            renderProjects();
+
+            setTimeout(() => {
+                const loader = document.getElementById('loader-screen');
+                loader.style.opacity = '0';
+                setTimeout(() => loader.remove(), 500);
+            }, 800);
+        });
+    </script>
+</body>
+</html>
