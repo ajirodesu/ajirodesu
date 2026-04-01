@@ -1,5 +1,3 @@
----
-
 **Hi, I'm Lance Cochangco 👋**
 *aka @ajirodesu — developer, builder, tinkerer.*
 
