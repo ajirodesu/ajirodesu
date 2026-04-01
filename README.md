@@ -21,4 +21,4 @@ I design and build practical tools — bots, APIs, and backends — with a focus
 |---|---|
 | Name | Lance Cochangco |
 | Username | `ajirodesu` |
-| Alias | LanceAjiro |
+| Alias | Lance Ajiro |
