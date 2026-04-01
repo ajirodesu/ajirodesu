@@ -1,16 +1,32 @@
-## Hi there 👋
+Hi, I'm Lance Cochangco 👋
 
-<!--
-**ajirodesu/ajirodesu** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I'm Lance Cochangco — also known as @ajirodesu.
 
-Here are some ideas to get you started:
+I build practical tools, bots, and APIs with a focus on simplicity, structure, and usefulness.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+🔧 Special Projects
+
+Reze-Bot
+
+A multipurpose Telegram bot made by AjiroDesu.
+
+Aqua-API
+
+A modular REST API made by AjiroDesu.
+
+Wataru-API
+
+An old REST API made by AjiroDesu.
+
+📌 About Me
+
+Name: Lance Cochangco
+
+Username: ajirodesu
+
+Developer Alias: AjiroDesu
+
+
+🌐 Connect With Me
+
+GitHub: @ajirodesu
