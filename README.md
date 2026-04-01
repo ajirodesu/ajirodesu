@@ -1,32 +1,33 @@
-Hi, I'm Lance Cochangco 👋
+---
 
-I'm Lance Cochangco — also known as @ajirodesu.
+**Hi, I'm Lance Cochangco 👋**
+*aka @ajirodesu — developer, builder, tinkerer.*
 
-I build practical tools, bots, and APIs with a focus on simplicity, structure, and usefulness.
+I design and build practical tools — bots, APIs, and backends — with a focus on clean architecture, simplicity, and real-world usefulness.
 
-🔧 Special Projects
+---
 
-Reze-Bot
+**🔧 Projects**
 
-A multipurpose Telegram bot made by AjiroDesu.
+**[Reze-Bot](https://github.com/ajirodesu)** — A multipurpose Telegram bot with AI-powered command dispatch and a modular plugin system.
 
-Aqua-API
+**[Aqua-API](https://github.com/ajirodesu)** — A modular REST API platform built for reliability and easy extensibility.
 
-A modular REST API made by AjiroDesu.
+**[Wataru-API](https://github.com/ajirodesu)** — A lightweight REST API. *(legacy)*
 
-Wataru-API
+---
 
-An old REST API made by AjiroDesu.
+**📌 About**
 
-📌 About Me
+| | |
+|---|---|
+| Name | Lance Cochangco |
+| Username | `ajirodesu` |
+| Alias | LanceAjiro |
 
-Name: Lance Cochangco
+---
 
-Username: ajirodesu
+**🌐 Find me**
+→ GitHub: [@ajirodesu](https://github.com/ajirodesu)
 
-Developer Alias: AjiroDesu
-
-
-🌐 Connect With Me
-
-GitHub: @ajirodesu
+---
